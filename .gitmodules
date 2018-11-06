@@ -1,0 +1,6 @@
+[submodule "public/api1"]
+	path = public/api1
+	url = https://github.com/cmu-is-projects/RailsSwaggerUI
+[submodule "public/api"]
+	path = public/api
+	url = https://github.com/cmu-is-projects/RailsSwaggerUI
