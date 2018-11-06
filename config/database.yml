@@ -109,4 +109,7 @@ test:
 production:
   <<: *default
   adapter: postgresql
-  database: my_development_database
+  encoding: unicode
+  host: localhost
+  database: postgresql-amorphous-78899
+  pool: 5
