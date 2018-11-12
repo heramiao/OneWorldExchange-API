@@ -1,4 +1,4 @@
-class GroupMemberController < ApplicationController
+class GroupmemberController < ApplicationController
 
     # Swagger Documentation
     swagger_controller :groupmember, "Group Member"
@@ -73,11 +73,11 @@ class GroupMemberController < ApplicationController
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_group_member
-    @groupmember = GroupMember.find(params[:id])
+        @groupmember = GroupMember.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
     def group_member_params
-    params.permit(:users_id, :travel_groups_id)
+        params.permit(:users_id, :travel_groups_id)
     end
 end

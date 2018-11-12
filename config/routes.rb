@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   resources :trip
   resources :split
   resources :transaction
+  resources :groupmember
 
 end

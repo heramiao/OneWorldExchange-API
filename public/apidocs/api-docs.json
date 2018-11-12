@@ -1,7 +1,7 @@
 {
   "apiVersion": "1.0",
   "swaggerVersion": "1.2",
-  "basePath": "https://oneworldexchange.herokuapp.com",
+  "basePath": "http://localhost:3000",
   "apis": [
     {
       "path": "/apidocs/user.{format}",
@@ -22,6 +22,10 @@
     {
       "path": "/apidocs/transaction.{format}",
       "description": "Transaction"
+    },
+    {
+      "path": "/apidocs/groupmember.{format}",
+      "description": "Group Member"
     }
   ],
   "authorizations": null,
