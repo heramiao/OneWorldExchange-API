@@ -39,7 +39,7 @@ class GroupmemberController < ApplicationController
     #     response :not_found
     # end
 
-    before_action :set_group_member, only: [:show, :destroy]
+    before_action :set_group_member, only: [:show, :destroy, :travelGroupMembers]
 
     # GET /groupmember
     def index
@@ -50,6 +50,13 @@ class GroupmemberController < ApplicationController
     # GET /groupmember/1
     def show
         render json: @groupmember
+    end
+
+    # GET /groupmember/travelgroup/1
+    def travelGroupMembers
+        @groupmembers = GroupMember.all
+        @travelGroupMembers = @groupmembers.in_group(:travel_groups_id)
+        render json: @travelGroupMembers
     end
 
     # POST /groupmember
