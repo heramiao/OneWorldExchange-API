@@ -20654,3 +20654,12 @@ Processing by GroupmemberController#index as JSON
 Completed 200 OK in 12ms (Views: 5.2ms | ActiveRecord: 2.1ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-11-19 18:07:00 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/puma-3.12.0/lib/puma/configuration.rb:225
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/heramiao/.rvm/rubies/ruby-2.5.3/lib/ruby/gems/2.5.0/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/heramiao/.rvm/rubies/ruby-2.5.3/lib/ruby/gems/2.5.0/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (3.7ms)
+Completed 200 OK in 14ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+
+

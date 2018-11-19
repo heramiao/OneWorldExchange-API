@@ -44,13 +44,13 @@ class TravelgroupController < ApplicationController
     # GET /travelgroup
     def index
       @travelgroups = TravelGroup.all
-      @travelgroups.map(|group| GroupMember.in_group(group.id).map())
+      #@travelgroups.map(|group| GroupMember.in_group(group.id).map())
       render json: @travelgroups
     end
   
     # GET /travelgroup/1
     def show
-      GroupMember.in_group(@travelgroup.group_id).map(|u| u.user)
+      #GroupMember.in_group(@travelgroup.group_id).map(|u| u.user)
       render json: @travelgroup
     end
   
@@ -63,6 +63,7 @@ class TravelgroupController < ApplicationController
       # need to get the user id from a login session 
   
       if @travelgroup.save
+        GroupMember.create()
         render json: @travelgroup, status: :created, location: @travelgroup
       else
         render json: @travelgroup.errors, status: :unprocessable_entity
