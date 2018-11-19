@@ -59,11 +59,11 @@ class TravelgroupController < ApplicationController
       @travelgroup = TravelGroup.new(travel_group_params)
 
       # create a group member 
-      @groupMember = GroupMember.create(@travelgroup.travel_groups_id, users_id) 
+      #@groupMember = GroupMember.create(@travelgroup.travel_groups_id, users_id) 
       # need to get the user id from a login session 
   
       if @travelgroup.save
-        GroupMember.create()
+        GroupMember.create(travel_group_id: @travelgroup.id, user_id: 1)
         render json: @travelgroup, status: :created, location: @travelgroup
       else
         render json: @travelgroup.errors, status: :unprocessable_entity
