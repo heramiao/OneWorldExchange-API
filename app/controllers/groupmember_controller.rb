@@ -64,8 +64,6 @@ class GroupmemberController < ApplicationController
         @groupmember = GroupMember.new(group_member_params)
 
         if @groupmember.save
-            @travelgroup = @groupmember.travelgroup
-            @user = @groupmember.user
         render json: @groupmember, status: :created, location: @groupmember
         else
         render json: @groupmember.errors, status: :unprocessable_entity

@@ -44,17 +44,23 @@ class TravelgroupController < ApplicationController
     # GET /travelgroup
     def index
       @travelgroups = TravelGroup.all
+      @travelgroups.map(|group| GroupMember.in_group(group.id).map())
       render json: @travelgroups
     end
   
     # GET /travelgroup/1
     def show
+      GroupMember.in_group(@travelgroup.group_id).map(|u| u.user)
       render json: @travelgroup
     end
   
     # POST /travelgroup
     def create
       @travelgroup = TravelGroup.new(travel_group_params)
+
+      # create a group member 
+      @groupMember = GroupMember.create(@travelgroup.travel_groups_id, users_id) 
+      # need to get the user id from a login session 
   
       if @travelgroup.save
         render json: @travelgroup, status: :created, location: @travelgroup

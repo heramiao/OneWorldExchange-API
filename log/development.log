@@ -20577,3 +20577,80 @@ Processing by UserController#index as JSON
 Completed 200 OK in 31ms (Views: 18.8ms | ActiveRecord: 1.6ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-11-19 16:41:41 -0500
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/puma-3.12.0/lib/puma/configuration.rb:225
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/heramiao/.rvm/rubies/ruby-2.5.3/lib/ruby/gems/2.5.0/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/heramiao/.rvm/rubies/ruby-2.5.3/lib/ruby/gems/2.5.0/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (3.4ms)
+Completed 200 OK in 17ms (Views: 11.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/travelgroup.json" for 127.0.0.1 at 2018-11-19 16:41:55 -0500
+Processing by TravelgroupController#index as JSON
+  [1m[36mTravelGroup Load (0.7ms)[0m  [1m[34mSELECT "travel_groups".* FROM "travel_groups"[0m
+  ↳ app/controllers/travelgroup_controller.rb:47
+Completed 200 OK in 18ms (Views: 2.6ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/travelgroup.json" for 127.0.0.1 at 2018-11-19 16:42:40 -0500
+Processing by TravelgroupController#create as JSON
+  Parameters: {"trip_name"=>"European Backpacking Trip", "start_date"=>"10/10/18", "end_date"=>"10/31/18"}
+Unpermitted parameter: :format
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/travelgroup_controller.rb:59
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/travelgroup_controller.rb:59
+Completed 422 Unprocessable Entity in 22ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/travelgroup.json" for 127.0.0.1 at 2018-11-19 16:44:21 -0500
+Processing by TravelgroupController#create as JSON
+  Parameters: {"trip_name"=>"European Backpacking Trip", "start_date"=>"2018-11-11", "end_date"=>"2018-12-11"}
+Unpermitted parameter: :format
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/travelgroup_controller.rb:59
+  [1m[36mTravelGroup Create (2.7ms)[0m  [1m[32mINSERT INTO "travel_groups" ("trip_name", "start_date", "end_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["trip_name", "European Backpacking Trip"], ["start_date", "2018-11-11"], ["end_date", "2018-12-11"], ["created_at", "2018-11-19 21:44:21.210234"], ["updated_at", "2018-11-19 21:44:21.210234"]]
+  ↳ app/controllers/travelgroup_controller.rb:59
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/travelgroup_controller.rb:59
+Completed 500 Internal Server Error in 98ms (ActiveRecord: 3.8ms)
+
+
+  
+NoMethodError (undefined method `travel_group_url' for #<TravelgroupController:0x00007f96e7c4eca0>
+Did you mean?  travelgroup_url):
+  
+app/controllers/travelgroup_controller.rb:60:in `create'
+Started POST "/travelgroup.json" for 127.0.0.1 at 2018-11-19 16:45:17 -0500
+Processing by TravelgroupController#create as JSON
+  Parameters: {"trip_name"=>"European Backpacking Trip", "start_date"=>"2018-11-11", "end_date"=>"2018-12-11"}
+Unpermitted parameter: :format
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/travelgroup_controller.rb:59
+  [1m[36mTravelGroup Create (0.6ms)[0m  [1m[32mINSERT INTO "travel_groups" ("trip_name", "start_date", "end_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["trip_name", "European Backpacking Trip"], ["start_date", "2018-11-11"], ["end_date", "2018-12-11"], ["created_at", "2018-11-19 21:45:17.992410"], ["updated_at", "2018-11-19 21:45:17.992410"]]
+  ↳ app/controllers/travelgroup_controller.rb:59
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/travelgroup_controller.rb:59
+Completed 500 Internal Server Error in 71ms (ActiveRecord: 1.4ms)
+
+
+  
+NoMethodError (undefined method `travel_group_url' for #<TravelgroupController:0x00007f96eb893f58>
+Did you mean?  travelgroup_url):
+  
+app/controllers/travelgroup_controller.rb:60:in `create'
+Started GET "/travelgroup.json" for 127.0.0.1 at 2018-11-19 16:47:57 -0500
+Processing by TravelgroupController#index as JSON
+  [1m[36mTravelGroup Load (0.3ms)[0m  [1m[34mSELECT "travel_groups".* FROM "travel_groups"[0m
+  ↳ app/controllers/travelgroup_controller.rb:47
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/groupmember.json" for 127.0.0.1 at 2018-11-19 16:48:16 -0500
+Processing by GroupmemberController#index as JSON
+  [1m[36mGroupMember Load (1.3ms)[0m  [1m[34mSELECT "group_members".* FROM "group_members"[0m
+  ↳ app/controllers/groupmember_controller.rb:47
+Completed 200 OK in 12ms (Views: 5.2ms | ActiveRecord: 2.1ms)
+
+
