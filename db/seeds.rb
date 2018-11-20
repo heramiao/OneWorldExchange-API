@@ -9,6 +9,9 @@
 # User
 
 User.create(first_name: "Ashvin", last_name: "Niruttan", email: "anirutta@andrew.cmu.edu", phone: "4125396846", password: "password", base_currency: "USD", password_confirmation: "password")
+User.create(first_name: "Hera", last_name: "Miao", email: "heram@andrew.cmu.edu", phone: "6308903971", password: "password", base_currency: "USD", password_confirmation: "password")
+User.create(first_name: "Amanda", last_name: "Stiegal", email: "astiegal@gmail.com", phone: "0123456789", password: "password", base_currency: "USD", password_confirmation: "password")
+User.create(first_name: "Ellie", last_name: "Walstad", email: "ewalstad@andrew.cmu.edu", phone: "1234567890", password: "password", base_currency: "USD", password_confirmation: "password")
 
 
 # Group
