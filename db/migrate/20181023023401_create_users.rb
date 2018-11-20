@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :phone
       t.string :password
       t.string :base_currency
+      t.string :password_confirmation
 
       t.timestamps
     end

@@ -20672,3 +20672,83 @@ Processing by UserController#index as JSON
 Completed 200 OK in 32ms (Views: 19.9ms | ActiveRecord: 1.4ms)
 
 
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+Migrating to AddPasswordConfirmationToUsers (20181120192152)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "password_confirmation" varchar[0m
+  ↳ db/migrate/20181120192152_add_password_confirmation_to_users.rb:3
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+Migrating to AddPasswordConfirmationEntity (20181030011347)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer NOT NULL PRIMARY KEY, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "email" varchar DEFAULT NULL, "phone" varchar DEFAULT NULL, "password" varchar DEFAULT NULL, "base_currency" varchar DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "password_confirmation" varchar DEFAULT NULL)[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "ausers" ("id","first_name","last_name","email","phone","password","base_currency","created_at","updated_at","password_confirmation")
+                     SELECT "id","first_name","last_name","email","phone","password","base_currency","created_at","updated_at","password_confirmation" FROM "users"[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "users"[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer NOT NULL PRIMARY KEY, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "email" varchar DEFAULT NULL, "phone" varchar DEFAULT NULL, "password" varchar DEFAULT NULL, "base_currency" varchar DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id","first_name","last_name","email","phone","password","base_currency","created_at","updated_at")
+                     SELECT "id","first_name","last_name","email","phone","password","base_currency","created_at","updated_at" FROM "ausers"[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "ausers"[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20181030011347"]]
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+Migrating to AddPasswordConfirmationEntity (20181030011347)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "password_confirmation" varchar[0m
+  ↳ db/migrate/20181030011347_add_password_confirmation_entity.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181030011347"]]
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+Migrating to AddPasswordConfirmationToUsers (20181120192152)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "password_confirmation" varchar[0m
+  ↳ db/migrate/20181120192152_add_password_confirmation_to_users.rb:3
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
