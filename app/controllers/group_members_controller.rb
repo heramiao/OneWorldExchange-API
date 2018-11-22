@@ -1,4 +1,4 @@
-class GroupmemberController < ApplicationController
+class GroupMembersController < ApplicationController
 
     # Swagger Documentation
     swagger_controller :groupmember, "Group Member"
@@ -41,25 +41,18 @@ class GroupmemberController < ApplicationController
 
     before_action :set_group_member, only: [:show, :destroy, :travelGroupMembers]
 
-    # GET /groupmember
+    # GET /group_members
     def index
         @groupmembers = GroupMember.all
         render json: @groupmembers
     end
 
-    # GET /groupmember/1
+    # GET /group_members/1
     def show
         render json: @groupmember
     end
 
-    # GET /groupmember/travelgroup/1
-    def travelGroupMembers
-        @groupmembers = GroupMember.all
-        @travelGroupMembers = @groupmembers.in_group(:travel_groups_id)
-        render json: @travelGroupMembers
-    end
-
-    # POST /groupmember
+    # POST /group_members
     def create
         @groupmember = GroupMember.new(group_member_params)
 
@@ -70,7 +63,7 @@ class GroupmemberController < ApplicationController
         end
     end
 
-    # DELETE /groupmember/1
+    # DELETE /group_members/1
     def destroy
         @groupmember.destroy
     end

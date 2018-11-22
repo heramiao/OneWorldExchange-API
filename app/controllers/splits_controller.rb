@@ -1,4 +1,4 @@
-class SplitController < ApplicationController
+class SplitsController < ApplicationController
 
     # Swagger Documentation
     swagger_controller :split, "Split"
@@ -41,14 +41,14 @@ class SplitController < ApplicationController
   
     before_action :set_split, only: [:show, :update, :destroy]
   
-    # GET /split
+    # GET /splits
     def index
       @splits = Split.all
   
       render json: @splits
     end
   
-    # GET /split/1
+    # GET /splits/1
     def show
       render json: @split
     end
@@ -64,7 +64,7 @@ class SplitController < ApplicationController
     #   end
     # end
   
-    # PATCH/PUT /split/1
+    # PATCH/PUT /splits/1
     def update
       if @split.update(split_params)
         render json: @split
@@ -73,7 +73,7 @@ class SplitController < ApplicationController
       end
     end
   
-    # DELETE /split/1
+    # DELETE /splits/1
     def destroy
       @split.destroy
     end

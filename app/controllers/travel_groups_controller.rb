@@ -1,4 +1,4 @@
-class TravelGroupController < ApplicationController
+class TravelGroupsController < ApplicationController
 
     # Swagger Documentation
     swagger_controller :travelgroup, "Travel Groups"
@@ -39,27 +39,27 @@ class TravelGroupController < ApplicationController
       response :not_found
     end
 
-    before_action :set_travel_group, only: [:show, :update, :destroy]
+    before_action :set_travel_group, only: [:show, :update, :destroy, :members]
   
-    # GET /travelgroup
+    # GET /travel_groups
     def index
       @travelgroups = TravelGroup.all
       #@travelgroups.map(|group| GroupMember.in_group(group.id).map())
       render json: @travelgroups
     end
   
-    # GET /travelgroup/1
+    # GET /travel_groups/1
     def show
       render json: @travelgroup
     end
 
-    # GET /travelgroup/1/members
+    # GET /travel_group/1/members
     def members
       @members = GroupMember.where(travel_group_id: @travelgroup.id)
       render json: @members
     end
   
-    # POST /travelgroup
+    # POST /travel_groups
     def create
       @travelgroup = TravelGroup.new(travel_group_params)
 
@@ -75,7 +75,7 @@ class TravelGroupController < ApplicationController
       end
     end
   
-    # PATCH/PUT /travelgroup/1
+    # PATCH/PUT /travel_groups/1
     def update
       if @travelgroup.update(travel_group_params)
         render json: @travelgroup
@@ -84,7 +84,7 @@ class TravelGroupController < ApplicationController
       end
     end
   
-    # DELETE /travelgroup/1
+    # DELETE /travel_groups/1
     def destroy
       @travelgroup.destroy
     end

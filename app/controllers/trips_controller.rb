@@ -1,4 +1,4 @@
-class TripController < ApplicationController
+class TripsController < ApplicationController
     
     # Swagger documentation
     swagger_controller :trip, "Trip"
@@ -17,14 +17,14 @@ class TripController < ApplicationController
 
     before_action :set_trip, only: [:show]
   
-    # GET /trip
+    # GET /trips
     def index
       @trips = Trip.all
   
       render json: @trip
     end
   
-    # GET /trip/1
+    # GET /trips/1
     def show
       render json: @trip
     end

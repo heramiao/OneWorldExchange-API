@@ -1,4 +1,4 @@
-class TransactionController < ApplicationController
+class TransactionsController < ApplicationController
 
     # Swagger Documentation
     swagger_controller :transaction, "Transaction"
@@ -47,19 +47,19 @@ class TransactionController < ApplicationController
   
     before_action :set_transaction, only: [:show, :update, :destroy]
   
-    # GET /transaction
+    # GET /transactions
     def index
       @transactions = Transaction.all
   
       render json: @transactions
     end
   
-    # GET /transaction/1
+    # GET /transactions/1
     def show
       render json: @transaction
     end
   
-    # POST /transaction
+    # POST /transactions
     def create
       @transaction = Transaction.new(split_params)
   
@@ -70,7 +70,7 @@ class TransactionController < ApplicationController
       end
     end
   
-    # PATCH/PUT /transaction/1
+    # PATCH/PUT /transactions/1
     def update
       if @transaction.update(transaction_params)
         render json: @transaction
@@ -79,7 +79,7 @@ class TransactionController < ApplicationController
       end
     end
   
-    # DELETE /transaction/1
+    # DELETE /transactions/1
     def destroy
       @transaction.destroy
     end

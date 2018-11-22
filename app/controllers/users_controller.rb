@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
 
   # Swagger Documentation
   swagger_controller :user, "User Accounts"
@@ -49,18 +49,18 @@ class UserController < ApplicationController
 
   before_action :set_user, only: [:show, :update, :destroy]
 
-  # GET /user
+  # GET /users
   def index
     @users = User.all
     render json: @users
   end
 
-  # GET /user/1
+  # GET /users/1
   def show
     render json: @user
   end
 
-  # POST /user
+  # POST /users
   def create
     @user = User.new(user_params)
 
@@ -71,7 +71,7 @@ class UserController < ApplicationController
     end
   end
 
-  # PATCH/PUT /user/1
+  # PATCH/PUT /users/1
   def update
     if @user.update(user_params)
       render json: @user
@@ -80,7 +80,7 @@ class UserController < ApplicationController
     end
   end
 
-  # DELETE /user/1
+  # DELETE /users/1
   def destroy
     @user.destroy
   end

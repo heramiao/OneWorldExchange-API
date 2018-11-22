@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :user
-  resources :travelgroup
-  resources :trip
-  resources :split
-  resources :transaction
-  resources :groupmember
+  resources :users
+  resources :travel_groups
+  resources :trips
+  resources :splits
+  resources :transactions
+  resources :group_members
 
   # more specific group member routes
-  get 'travelgroup/:id/members' => 'travelgroup/#members', :as => :members
+  get 'travel_group/:id/members' => 'travel_groups#members', :as => :members
 
 end
