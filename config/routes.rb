@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   resources :groupmember
 
   # more specific group member routes
-  # get 'groupmember/trave`l`group/:id' => 'groupmember#travelGroupMembers', :as => :travelGroupMembers
+  get 'travelgroup/:id/members' => 'travelgroup/#members', :as => :members
 
 end

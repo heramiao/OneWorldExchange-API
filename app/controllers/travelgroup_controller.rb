@@ -50,8 +50,13 @@ class TravelgroupController < ApplicationController
   
     # GET /travelgroup/1
     def show
-      #GroupMember.in_group(@travelgroup.group_id).map(|u| u.user)
       render json: @travelgroup
+    end
+
+    # GET /travelgroup/1/members
+    def members
+      @members = GroupMember.where(travel_group_id: @travelgroup.id)
+      render json: @members
     end
   
     # POST /travelgroup
