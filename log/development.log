@@ -21892,3 +21892,417 @@ Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.2ms)
   ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "group_members"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "group_members" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "users_id" integer, "travel_groups_id" integer)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX "index_group_members_on_travel_groups_id" ON "group_members" ("travel_groups_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX "index_group_members_on_users_id" ON "group_members" ("users_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "splits"[0m
+  ↳ db/schema.rb:24
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "splits" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "percent_owed" float, "amount_owed" float, "date_paid" date, "transactions_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "payee_id" integer, "payor_id" integer)[0m
+  ↳ db/schema.rb:24
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX "index_splits_on_payee_id" ON "splits" ("payee_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX "index_splits_on_payor_id" ON "splits" ("payor_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX "index_splits_on_transactions_id" ON "splits" ("transactions_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "transactions"[0m
+  ↳ db/schema.rb:38
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "transactions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "date_charged" date, "description" varchar, "currency_type" varchar, "total_charged" float, "country" varchar, "expense_type" varchar, "travel_groups_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:38
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX "index_transactions_on_travel_groups_id" ON "transactions" ("travel_groups_id")[0m
+  ↳ db/schema.rb:38
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "travel_groups"[0m
+  ↳ db/schema.rb:51
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "travel_groups" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "trip_name" varchar, "start_date" date, "end_date" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:51
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "trips"[0m
+  ↳ db/schema.rb:59
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "trips" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "travel_groups_id" integer, "transactions_id" integer)[0m
+  ↳ db/schema.rb:59
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX "index_trips_on_transactions_id" ON "trips" ("transactions_id")[0m
+  ↳ db/schema.rb:59
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX "index_trips_on_travel_groups_id" ON "trips" ("travel_groups_id")[0m
+  ↳ db/schema.rb:59
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:68
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "email" varchar, "phone" varchar, "password" varchar, "base_currency" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "password_confirmation" varchar)[0m
+  ↳ db/schema.rb:68
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181030011347)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20181023023401),
+(20181023024237),
+(20181023024119),
+(20181029164743),
+(20181029170952),
+(20181029182846),
+(20181023024228),
+(20181029171154);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-11-22 04:18:58.787810"], ["updated_at", "2018-11-22 04:18:58.787810"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "group_members"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "group_members" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "users_id" integer, "travel_groups_id" integer)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX "index_group_members_on_travel_groups_id" ON "group_members" ("travel_groups_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX "index_group_members_on_users_id" ON "group_members" ("users_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "splits"[0m
+  ↳ db/schema.rb:24
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "splits" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "percent_owed" float, "amount_owed" float, "date_paid" date, "transactions_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "payee_id" integer, "payor_id" integer)[0m
+  ↳ db/schema.rb:24
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX "index_splits_on_payee_id" ON "splits" ("payee_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX "index_splits_on_payor_id" ON "splits" ("payor_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX "index_splits_on_transactions_id" ON "splits" ("transactions_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "transactions"[0m
+  ↳ db/schema.rb:38
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "transactions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "date_charged" date, "description" varchar, "currency_type" varchar, "total_charged" float, "country" varchar, "expense_type" varchar, "travel_groups_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:38
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX "index_transactions_on_travel_groups_id" ON "transactions" ("travel_groups_id")[0m
+  ↳ db/schema.rb:38
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "travel_groups"[0m
+  ↳ db/schema.rb:51
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "travel_groups" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "trip_name" varchar, "start_date" date, "end_date" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:51
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "trips"[0m
+  ↳ db/schema.rb:59
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "trips" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "travel_groups_id" integer, "transactions_id" integer)[0m
+  ↳ db/schema.rb:59
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX "index_trips_on_transactions_id" ON "trips" ("transactions_id")[0m
+  ↳ db/schema.rb:59
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX "index_trips_on_travel_groups_id" ON "trips" ("travel_groups_id")[0m
+  ↳ db/schema.rb:59
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:68
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "email" varchar, "phone" varchar, "password" varchar, "base_currency" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "password_confirmation" varchar)[0m
+  ↳ db/schema.rb:68
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181030011347)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20181023023401),
+(20181023024237),
+(20181023024119),
+(20181029164743),
+(20181029170952),
+(20181029182846),
+(20181023024228),
+(20181029171154);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-11-22 04:18:58.839080"], ["updated_at", "2018-11-22 04:18:58.839080"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2018-11-22 04:18:58.842714"], ["key", "environment"]]
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "anirutta@andrew.cmu.edu"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "phone", "password", "base_currency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Ashvin"], ["last_name", "Niruttan"], ["email", "anirutta@andrew.cmu.edu"], ["phone", "4125396846"], ["password", "password"], ["base_currency", "USD"], ["created_at", "2018-11-22 04:18:58.868726"], ["updated_at", "2018-11-22 04:18:58.868726"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "heram@andrew.cmu.edu"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "phone", "password", "base_currency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Hera"], ["last_name", "Miao"], ["email", "heram@andrew.cmu.edu"], ["phone", "6308903971"], ["password", "password"], ["base_currency", "USD"], ["created_at", "2018-11-22 04:18:58.878660"], ["updated_at", "2018-11-22 04:18:58.878660"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "astiegal@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "phone", "password", "base_currency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Amanda"], ["last_name", "Stiegal"], ["email", "astiegal@gmail.com"], ["phone", "0123456789"], ["password", "password"], ["base_currency", "USD"], ["created_at", "2018-11-22 04:18:58.884805"], ["updated_at", "2018-11-22 04:18:58.884805"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ewalstad@andrew.cmu.edu"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:14
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "phone", "password", "base_currency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Ellie"], ["last_name", "Walstad"], ["email", "ewalstad@andrew.cmu.edu"], ["phone", "1234567890"], ["password", "password"], ["base_currency", "USD"], ["created_at", "2018-11-22 04:18:58.888989"], ["updated_at", "2018-11-22 04:18:58.888989"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mTravelGroup Create (0.4ms)[0m  [1m[32mINSERT INTO "travel_groups" ("trip_name", "start_date", "end_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["trip_name", "Hawaii"], ["start_date", "2018-11-11"], ["end_date", "2018-11-15"], ["created_at", "2018-11-22 04:18:58.904087"], ["updated_at", "2018-11-22 04:18:58.904087"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "group_members"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "group_members" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "users_id" integer, "travel_groups_id" integer)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX "index_group_members_on_travel_groups_id" ON "group_members" ("travel_groups_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX "index_group_members_on_users_id" ON "group_members" ("users_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "splits"[0m
+  ↳ db/schema.rb:24
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "splits" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "percent_owed" float, "amount_owed" float, "date_paid" date, "transactions_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "payee_id" integer, "payor_id" integer)[0m
+  ↳ db/schema.rb:24
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX "index_splits_on_payee_id" ON "splits" ("payee_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX "index_splits_on_payor_id" ON "splits" ("payor_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX "index_splits_on_transactions_id" ON "splits" ("transactions_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "transactions"[0m
+  ↳ db/schema.rb:38
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "transactions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "date_charged" date, "description" varchar, "currency_type" varchar, "total_charged" float, "country" varchar, "expense_type" varchar, "travel_groups_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:38
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX "index_transactions_on_travel_groups_id" ON "transactions" ("travel_groups_id")[0m
+  ↳ db/schema.rb:38
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "travel_groups"[0m
+  ↳ db/schema.rb:51
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "travel_groups" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "trip_name" varchar, "start_date" date, "end_date" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:51
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "trips"[0m
+  ↳ db/schema.rb:59
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "trips" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "travel_groups_id" integer, "transactions_id" integer)[0m
+  ↳ db/schema.rb:59
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX "index_trips_on_transactions_id" ON "trips" ("transactions_id")[0m
+  ↳ db/schema.rb:59
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX "index_trips_on_travel_groups_id" ON "trips" ("travel_groups_id")[0m
+  ↳ db/schema.rb:59
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:68
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "email" varchar, "phone" varchar, "password" varchar, "base_currency" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "password_confirmation" varchar)[0m
+  ↳ db/schema.rb:68
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181030011347)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20181023023401),
+(20181023024237),
+(20181023024119),
+(20181029164743),
+(20181029170952),
+(20181029182846),
+(20181023024228),
+(20181029171154);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-11-22 04:19:20.354489"], ["updated_at", "2018-11-22 04:19:20.354489"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "group_members"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "group_members" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "users_id" integer, "travel_groups_id" integer)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX "index_group_members_on_travel_groups_id" ON "group_members" ("travel_groups_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX "index_group_members_on_users_id" ON "group_members" ("users_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "splits"[0m
+  ↳ db/schema.rb:24
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "splits" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "percent_owed" float, "amount_owed" float, "date_paid" date, "transactions_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "payee_id" integer, "payor_id" integer)[0m
+  ↳ db/schema.rb:24
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX "index_splits_on_payee_id" ON "splits" ("payee_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX "index_splits_on_payor_id" ON "splits" ("payor_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX "index_splits_on_transactions_id" ON "splits" ("transactions_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "transactions"[0m
+  ↳ db/schema.rb:38
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "transactions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "date_charged" date, "description" varchar, "currency_type" varchar, "total_charged" float, "country" varchar, "expense_type" varchar, "travel_groups_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:38
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX "index_transactions_on_travel_groups_id" ON "transactions" ("travel_groups_id")[0m
+  ↳ db/schema.rb:38
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "travel_groups"[0m
+  ↳ db/schema.rb:51
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "travel_groups" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "trip_name" varchar, "start_date" date, "end_date" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:51
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "trips"[0m
+  ↳ db/schema.rb:59
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "trips" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "travel_groups_id" integer, "transactions_id" integer)[0m
+  ↳ db/schema.rb:59
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX "index_trips_on_transactions_id" ON "trips" ("transactions_id")[0m
+  ↳ db/schema.rb:59
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX "index_trips_on_travel_groups_id" ON "trips" ("travel_groups_id")[0m
+  ↳ db/schema.rb:59
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:68
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "email" varchar, "phone" varchar, "password" varchar, "base_currency" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "password_confirmation" varchar)[0m
+  ↳ db/schema.rb:68
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181030011347)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20181023023401),
+(20181023024237),
+(20181023024119),
+(20181029164743),
+(20181029170952),
+(20181029182846),
+(20181023024228),
+(20181029171154);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-11-22 04:19:20.399107"], ["updated_at", "2018-11-22 04:19:20.399107"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2018-11-22 04:19:20.402916"], ["key", "environment"]]
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/heramiao/.rvm/gems/ruby-2.5.3/gems/rake-12.3.1/lib/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "anirutta@andrew.cmu.edu"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "phone", "password", "base_currency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Ashvin"], ["last_name", "Niruttan"], ["email", "anirutta@andrew.cmu.edu"], ["phone", "4125396846"], ["password", "password"], ["base_currency", "USD"], ["created_at", "2018-11-22 04:19:20.428495"], ["updated_at", "2018-11-22 04:19:20.428495"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "heram@andrew.cmu.edu"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "phone", "password", "base_currency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Hera"], ["last_name", "Miao"], ["email", "heram@andrew.cmu.edu"], ["phone", "6308903971"], ["password", "password"], ["base_currency", "USD"], ["created_at", "2018-11-22 04:19:20.431742"], ["updated_at", "2018-11-22 04:19:20.431742"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "astiegal@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "phone", "password", "base_currency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Amanda"], ["last_name", "Stiegal"], ["email", "astiegal@gmail.com"], ["phone", "0123456789"], ["password", "password"], ["base_currency", "USD"], ["created_at", "2018-11-22 04:19:20.434949"], ["updated_at", "2018-11-22 04:19:20.434949"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ewalstad@andrew.cmu.edu"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:14
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "phone", "password", "base_currency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Ellie"], ["last_name", "Walstad"], ["email", "ewalstad@andrew.cmu.edu"], ["phone", "1234567890"], ["password", "password"], ["base_currency", "USD"], ["created_at", "2018-11-22 04:19:20.442296"], ["updated_at", "2018-11-22 04:19:20.442296"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mTravelGroup Create (0.4ms)[0m  [1m[32mINSERT INTO "travel_groups" ("trip_name", "start_date", "end_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["trip_name", "Hawaii"], ["start_date", "2018-11-11"], ["end_date", "2018-11-15"], ["created_at", "2018-11-22 04:19:20.455853"], ["updated_at", "2018-11-22 04:19:20.455853"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:18
+  [1m[36mTravelGroup Load (0.5ms)[0m  [1m[34mSELECT  "travel_groups".* FROM "travel_groups" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mGroupMember Load (0.3ms)[0m  [1m[34mSELECT  "group_members".* FROM "group_members" LIMIT ?[0m  [["LIMIT", 11]]

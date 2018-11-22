@@ -1,4 +1,4 @@
-class TravelgroupController < ApplicationController
+class TravelGroupController < ApplicationController
 
     # Swagger Documentation
     swagger_controller :travelgroup, "Travel Groups"
