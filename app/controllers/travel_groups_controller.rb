@@ -56,7 +56,8 @@ class TravelGroupsController < ApplicationController
     # GET /travel_group/1/members
     def members
       @members = GroupMember.where(travel_group_id: @travelgroup.id)
-      render json: @members
+      @users = User.where(id: @members.select(:user_id))
+      render json: @users
     end
   
     # POST /travel_groups

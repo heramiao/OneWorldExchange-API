@@ -19,4 +19,4 @@ TravelGroup.create(trip_name: "Hawaii", start_date: "2018-11-11", end_date: "201
 
 
 # Group Member
-#GroupMember.create(travel_group_id: 1, user_id:1)
+GroupMember.create(travel_group_id: 1, user_id:1)

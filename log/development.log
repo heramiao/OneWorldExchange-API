@@ -23684,3 +23684,24 @@ puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
 puma (3.12.0) lib/puma/server.rb:472:in `process_client'
 puma (3.12.0) lib/puma/server.rb:332:in `block in run'
 puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[36mGroupMember Load (0.4ms)[0m  [1m[34mSELECT  "group_members".* FROM "group_members" WHERE "group_members"."travel_group_id" = ? LIMIT ?[0m  [["travel_group_id", 1], ["LIMIT", 11]]
+  [1m[36mGroupMember Load (1.3ms)[0m  [1m[34mSELECT  "group_members".* FROM "group_members" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTravelGroup Load (0.4ms)[0m  [1m[34mSELECT  "travel_groups".* FROM "travel_groups" WHERE "travel_groups"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGroupMember Create (2.1ms)[0m  [1m[32mINSERT INTO "group_members" ("travel_group_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["travel_group_id", 1], ["user_id", 1], ["created_at", "2018-11-23 17:23:17.027551"], ["updated_at", "2018-11-23 17:23:17.027551"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGroupMember Load (0.3ms)[0m  [1m[34mSELECT  "group_members".* FROM "group_members" WHERE "group_members"."travel_group_id" = ? LIMIT ?[0m  [["travel_group_id", 1], ["LIMIT", 11]]
+  [1m[36mGroupMember Load (0.1ms)[0m  [1m[34mSELECT  "group_members".* FROM "group_members" WHERE "group_members"."travel_group_id" = ? LIMIT ?[0m  [["travel_group_id", 1], ["LIMIT", 11]]
+  [1m[36mGroupMember Load (0.2ms)[0m  [1m[34mSELECT  "group_members".* FROM "group_members" WHERE "group_members"."travel_group_id" = ? LIMIT ?[0m  [["travel_group_id", 1], ["LIMIT", 11]]
+  [1m[36mGroupMember Load (0.2ms)[0m  [1m[34mSELECT  "group_members".* FROM "group_members" WHERE "group_members"."travel_group_id" = ? LIMIT ?[0m  [["travel_group_id", 1], ["LIMIT", 11]]
+  [1m[36mGroupMember Load (0.2ms)[0m  [1m[34mSELECT  "group_members".* FROM "group_members" WHERE "group_members"."travel_group_id" = ? LIMIT ?[0m  [["travel_group_id", 1], ["LIMIT", 11]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IN (SELECT "group_members"."user_id" FROM "group_members" WHERE "group_members"."travel_group_id" = ?) LIMIT ?[0m  [["travel_group_id", 1], ["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTravelGroup Load (0.2ms)[0m  [1m[34mSELECT  "travel_groups".* FROM "travel_groups" WHERE "travel_groups"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGroupMember Create (0.8ms)[0m  [1m[32mINSERT INTO "group_members" ("travel_group_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["travel_group_id", 1], ["user_id", 2], ["created_at", "2018-11-23 17:40:30.609245"], ["updated_at", "2018-11-23 17:40:30.609245"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGroupMember Load (0.3ms)[0m  [1m[34mSELECT  "group_members".* FROM "group_members" WHERE "group_members"."travel_group_id" = ? LIMIT ?[0m  [["travel_group_id", 1], ["LIMIT", 11]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IN (SELECT "group_members"."user_id" FROM "group_members" WHERE "group_members"."travel_group_id" = ?) LIMIT ?[0m  [["travel_group_id", 1], ["LIMIT", 11]]
