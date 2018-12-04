@@ -16,9 +16,9 @@ User.create(first_name: "Katie", last_name: "Armstrong", email: "katiearmstrong@
 
 
 # Group
-TravelGroup.create(trip_name: "European Backpacking", start_date: "2018-11-11", end_date: "2018-11-15")
-TravelGroup.create(trip_name: "Tokyo Adventures", start_date: "2018-12-15", end_date: "2018-12-31")
-TravelGroup.create(trip_name: "Hawaii Trip", start_date: "2018-12-25", end_date: "2019-01-11")
+TravelGroup.create(trip_name: "European Backpacking", start_date: "2018-12-04", end_date: "2018-12-31")
+TravelGroup.create(trip_name: "Tokyo Adventures", start_date: "2018-11-11", end_date: "2018-11-22")
+TravelGroup.create(trip_name: "Hawaii Trip", start_date: "2018-07-04", end_date: "2019-07-15")
 
 
 # Group Member
