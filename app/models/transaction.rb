@@ -12,4 +12,5 @@ class Transaction < ApplicationRecord
   # Validations
   validates :expense_type, inclusion: { in: %w[food transportation shopping entertainment lodging other] }
   validates :currency_type, inclusion: { in: %w[USD EUR GBP CHF AUD JPY TWD CNH] }
+
 end
