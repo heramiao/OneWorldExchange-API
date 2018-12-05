@@ -12,7 +12,7 @@ User.create(first_name: "Hera", last_name: "Miao", email: "heram@andrew.cmu.edu"
 
 User.create(first_name: "Katie", last_name: "Armstrong", email: "katiearmstrong@gmail.com", phone: "6758493021", password: "password", base_currency: "USD", password_confirmation: "password")
 User.create(first_name: "Winston", last_name: "Chu", email: "wpchu@andrew.cmu.edu", phone: "3940587610", password: "password", base_currency: "USD", password_confirmation: "password")
-User.create(first_name: "Hannah", last_name: "Jenkins", email: "hjenkinsgmail.com", phone: "1029384756", password: "password", base_currency: "USD", password_confirmation: "password")
+User.create(first_name: "Hannah", last_name: "Jenkins", email: "hjenkins@gmail.com", phone: "1029384756", password: "password", base_currency: "USD", password_confirmation: "password")
 User.create(first_name: "Jack", last_name: "Lance", email: "jackl@andrew.cmu.edu", phone: "6218496098", password: "password", base_currency: "USD", password_confirmation: "password")
 User.create(first_name: "Roy", last_name: "Miao", email: "roymiao@gmail.com", phone: "6301829406", password: "password", base_currency: "USD", password_confirmation: "password")
 User.create(first_name: "Amanda", last_name: "Stiegal", email: "astiegal@gmail.com", phone: "0123456789", password: "password", base_currency: "USD", password_confirmation: "password")
