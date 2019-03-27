@@ -12,8 +12,8 @@ class User < ApplicationRecord
     validates_format_of :phone, with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, message: "should be 10 digits (area code needed) and delimited with dashes only"
     validates_uniqueness_of :email
     validates :base_currency, inclusion: { in: %w[USD EUR GBP CHF AUD JPY TWD CNH] }
-    validates_confirmation_of :password, on: :create, message: "does not match"
-    validates_length_of :password, minimum: 8, message: "must be at least 8 characters long", allow_blank: true
+    # validates_confirmation_of :password, on: :create, message: "does not match"
+    # validates_length_of :password, minimum: 8, message: "must be at least 8 characters long", allow_blank: true
 
 
     # # Callbacks

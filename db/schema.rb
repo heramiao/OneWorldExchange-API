@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_06_205106) do
+ActiveRecord::Schema.define(version: 2019_03_27_013856) do
 
   create_table "group_members", force: :cascade do |t|
     t.integer "travel_group_id"
@@ -70,13 +70,11 @@ ActiveRecord::Schema.define(version: 2018_12_06_205106) do
     t.string "last_name"
     t.string "email"
     t.string "phone"
-    t.string "password"
     t.string "base_currency"
-    t.string "password_confirmation"
     t.float "balance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "balance"
+    t.string "token_id"
   end
 
 end
