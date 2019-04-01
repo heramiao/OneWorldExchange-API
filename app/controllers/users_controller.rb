@@ -85,6 +85,16 @@ class UsersController < ApplicationController
     @user.destroy
   end
 
+  # GET /users/:token_id
+  def tokenID
+    token_id = params[:token_id]
+    if User.where(token_id: token_id)
+      render json: @user
+    else
+      @user.create
+      render json: @user
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -93,6 +103,6 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.permit(:first_name, :last_name, :email, :phone, :password, :password_confirmation, :base_currency)
+      params.permit(:first_name, :last_name, :email, :phone, :base_currency, :token_id, :balance)
     end
 end
