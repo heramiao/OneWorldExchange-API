@@ -93,6 +93,7 @@ class UsersController < ApplicationController
     else
       @user.create
       render json: @user
+    end
   end
 
   private
