@@ -25528,3 +25528,6 @@ Migrating to RemovePasswordConfirmationFromUsers (20190327013856)
   ↳ db/seeds.rb:31
   [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
   ↳ db/seeds.rb:31
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mTravelGroup Load (0.5ms)[0m  [1m[34mSELECT  "travel_groups".* FROM "travel_groups" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mTravelGroup Load (0.2ms)[0m  [1m[34mSELECT  "travel_groups".* FROM "travel_groups" WHERE "travel_groups"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 11]]
