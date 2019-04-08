@@ -92,11 +92,10 @@ class UsersController < ApplicationController
     if @user
       render json: @user
     # else if @user is nil, do something
-    # else
-    #   @user = 
-    #   @user.create
-    #   render json: @user
-    # end
+    else
+      @user.create
+      render json: @user
+    end
   end
 
   private
