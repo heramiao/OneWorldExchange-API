@@ -88,12 +88,15 @@ class UsersController < ApplicationController
   # GET /users/:token_id
   def tokenID
     token_id = params[:token_id]
-    if User.where(token_id: token_id)
+    @user = User.where(token_id: token_id).first
+    if @user
       render json: @user
-    else
-      @user.create
-      render json: @user
-    end
+    # else if @user is nil, do something
+    # else
+    #   @user = 
+    #   @user.create
+    #   render json: @user
+    # end
   end
 
   private
