@@ -87,9 +87,9 @@ class UsersController < ApplicationController
 
   # GET /users/:token_id
   def tokenID
-    # token_id = params[:token_id]
-    # @user = User.where(token_id: token_id).first
-    @user = User.find_by(token_id: params[:token_id].to_s)
+    token_id = params[:token_id]
+    @user = User.where(token_id: token_id).first
+    # @user = User.find_by(token_id: params[:token_id].to_s)
     if @user
       render json: @user
     # else if @user is nil, do something

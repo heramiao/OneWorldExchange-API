@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   get 'travel_group/:id/members' => 'travel_groups#members', :as => :members
 
   # get all user token ids
-  get 'users/:token_id' => 'users#tokenID', :as => :tokenID
+  get ':token_id' => 'users#tokenID', :as => :tokenID
 
 end
