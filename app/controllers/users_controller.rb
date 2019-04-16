@@ -89,13 +89,12 @@ class UsersController < ApplicationController
   def tokenID
     token_id = params[:token_id]
     @user = User.where(token_id: token_id).first
-    # @user = User.find_by(token_id: params[:token_id])
     if @user
       render json: @user
     # else if @user is nil, do something
     else
-      @user.create
-      render json: @user
+      # @user.create
+      render json: @user.errors, status: :unprocessable_entity
     end
   end
 
